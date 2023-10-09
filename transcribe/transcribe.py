@@ -10,6 +10,8 @@ import soundfile
 from espnet_model_zoo.downloader import ModelDownloader
 from espnet2.bin.asr_inference import Speech2Text
 
+from config_transcribe import output_directory
+
 d = ModelDownloader()
 # It may takes a while to download and build models
 speech2text = Speech2Text(
@@ -42,5 +44,4 @@ def transcribe(directory):
             continue
 
 if __name__ == "__main__":
-    input_directory = "original/output"
-    transcribe(input_directory)
+    transcribe(output_directory)

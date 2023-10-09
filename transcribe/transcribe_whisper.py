@@ -1,7 +1,3 @@
-lang = 'ja'
-fs = 16000
-tag = 'Shinji Watanabe/laborotv_asr_train_asr_conformer2_latest33_raw_char_sp_valid.acc.ave'
-
 import os
 import time
 import torch
@@ -9,6 +5,8 @@ import string
 import soundfile
 
 import whisper
+
+from config_transcribe import output_directory
 
 # It may takes a while to download and build models
 speech2text = whisper.load_model("large")
@@ -34,5 +32,4 @@ def transcribe(directory):
             continue
 
 if __name__ == "__main__":
-    input_directory = "original/output"
-    transcribe(input_directory)
+    transcribe(output_directory)

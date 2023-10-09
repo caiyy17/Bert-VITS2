@@ -14,6 +14,7 @@ MERGE_GAP_THRESHOLD = 1
 LENGTH_THRESHOLD = 10
 TOP_DB = 30
 
+from config_transcribe import input_directory, output_directory
 
 def merge_intervals(intervals, sr):
     merged_intervals = []
@@ -63,14 +64,4 @@ def slicing_directory(directory, output_directory, ONE_OVER_GAP):
 
 
 if __name__ == "__main__":
-
-    print("Usage: python3 slice.py <directory> <output directory>")
-
-    if len(sys.argv) - 1 == 0:
-        directory = "original/bakemonogatari"
-        output_directory = "raw/bakemonogatari"
-    else:
-        directory = sys.argv[1]
-        output_directory = sys.argv[2]
-
-    slicing_directory(directory, output_directory, ONE_OVER_GAP)
+    slicing_directory(input_directory, output_directory, ONE_OVER_GAP)

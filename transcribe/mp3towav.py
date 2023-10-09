@@ -5,6 +5,7 @@
 import os
 import sys
 
+from config_transcribe import input_directory
 
 def convert_mp3_to_wav(directory):
     for filename in os.listdir(directory):
@@ -22,12 +23,4 @@ def convert_mp3_to_wav(directory):
 
 
 if __name__ == "__main__":
-
-    print("Usage: python3 mp3towav.py <directory>")
-
-    if len(sys.argv) - 1 == 0:
-        directory = "original/Monogatari"
-    else:
-        directory = sys.argv[1]
-
-    convert_mp3_to_wav(directory)
+    convert_mp3_to_wav(input_directory)

@@ -166,3 +166,11 @@ cython_debug/
 filelists/*
 !/filelists/esd.list
 data/*
+
+pytorch_model.bin
+tf_model.h5
+flax_model.msgpack
+
+dataset/
+raw/
+original/

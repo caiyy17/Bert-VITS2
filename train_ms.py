@@ -42,6 +42,10 @@ torch.backends.cuda.enable_mem_efficient_sdp(
 torch.backends.cuda.enable_math_sdp(True)
 global_step = 0
 
+os.environ["MASTER_ADDR"] = "localhost"
+os.environ["MASTER_PORT"] = "12355"
+os.environ["WORLD_SIZE"] = "1"
+os.environ["RANK"] = "0"
 
 def run():
     dist.init_process_group(
@@ -74,7 +78,7 @@ def run():
         train_dataset,
         num_workers=16,
         shuffle=False,
-        pin_memory=True,
+        pin_memory=False,
         collate_fn=collate_fn,
         batch_sampler=train_sampler,
         persistent_workers=True,
@@ -87,7 +91,7 @@ def run():
             num_workers=0,
             shuffle=False,
             batch_size=1,
-            pin_memory=True,
+            pin_memory=False,
             drop_last=False,
             collate_fn=collate_fn,
         )

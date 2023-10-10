@@ -1,3 +1,5 @@
+from config_preprocess import filelist
+
 import json
 from collections import defaultdict
 from random import shuffle
@@ -7,11 +9,10 @@ from tqdm import tqdm
 import click
 from text.cleaner import clean_text
 
-
 @click.command()
 @click.option(
     "--transcription-path",
-    default="filelists/genshin_out.txt",
+    default=f"{filelist}",
     type=click.Path(exists=True, file_okay=True, dir_okay=False),
 )
 @click.option("--cleaned-path", default=None)

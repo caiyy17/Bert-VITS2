@@ -59,6 +59,8 @@ def slicing_directory(directory, output_directory, ONE_OVER_GAP):
                     sliced[0]) + "_" + str(sliced[1]) + ".wav"
                 sf.write(output_directory + "/" + sliced_filename,
                          y[sliced[0]:sliced[1]], sr)
+            # delete original wav file
+            os.remove(directory + "/" + filename)
         else:
             continue
 

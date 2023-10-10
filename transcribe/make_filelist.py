@@ -1,12 +1,8 @@
 import os
 
-name = [
-    ('mona_jp','JP'),
-    ('amber_cn','ZH'),
-]
+from config_transcribe import out_file, dataset_name
+name = dataset_name
 
-
-out_file = f"filelists/genshin_out.txt"
 def process():
     with open(out_file, 'w', encoding="utf-8") as wf:
         for item in name:
